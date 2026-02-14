@@ -86,7 +86,23 @@ Before releasing the new version of our app to production, we need to run some a
 - security test
 
 Very often, we don't want to automatically deploy to production.  
-Sometimes, staging may be used by the dev team or PM or product owner to demo the new features first to maybe higher decision makers.  
-There, we might get useful input from them and need to make some adjustments 
+Sometimes, staging may be used by the dev team or PM or product owner to demo the new features first to higher decision makers.  
+There, we might get useful input from them and then make some needed adjustments.  
+So it's common to have a manual confirmation before deploying to prod.  
 
-@16/21
+# Deployment strategies
+
+No testing is 100% perfect, and bugs can still slip through.  
+To further reduce the risk, we use deployment strategies such as:
+- canary deployment:
+  - roll out the new feature to 1% of users and observe for an hour
+  - crank it up to 10% of users and observe for 2 hours
+  - then 20% of users for a longer period of time
+  - if nothing bad happens, let's switch to 100%
+- blue-green deployment:
+  - requires 2 identical prod environments
+  - deploy new version to the green environment and keep running the current version inside the blue one
+  - if the new deployment has an issue, we can easily switch the entire traffic back to the current version  
+
+
+@19/21
