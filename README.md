@@ -67,14 +67,26 @@ But it's worth the investment because it will serve us for years.
 What happens after we deploy to dev environment?  
 
 Instead of waiting for release to do thorough end-to-end tests, testing all the integrations with databases and other services, 
-we run these extensive tests every time code changes get merged into the main branch.  
+we run these extensive tests inside our dev environment every time code changes get merged into the main branch.  
 
 That part also requires writing a lot of automated tests for complex use cases.  
 
 ## Deploying to Staging environment (pre-production)
 
+We tested our code before deploying to dev environment, then we ran E2E tests while our app was running in the dev environment.  
+If our app passed those tests successfully, we can now deploy it to our staging environment.  
+
 That workflow of deploying a release all the way to the staging (or testing) environment is called Continuous Delivery.  
 
+## Deploying to production
 
+Before releasing the new version of our app to production, we need to run some additional tests inside our staging environment:
+- performance test
+- compliance check
+- security test
 
-@12/21
+Very often, we don't want to automatically deploy to production.  
+Sometimes, staging may be used by the dev team or PM or product owner to demo the new features first to maybe higher decision makers.  
+There, we might get useful input from them and need to make some adjustments 
+
+@16/21
