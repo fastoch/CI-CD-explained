@@ -104,5 +104,5 @@ To further reduce the risk, we use deployment strategies such as:
   - deploy new version to the green environment and keep running the current version inside the blue one
   - if the new deployment has an issue, we can easily switch the entire traffic back to the current version  
 
-
+---
 COMPLETED
